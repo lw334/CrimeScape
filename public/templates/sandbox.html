@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sandboxApp">
+<head ng-controller="headCtrl">
+<meta charset="utf-8">
+<title> | CrimeScape</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Harris School of Public Policy">
+<link href="/img/favicon.ico" rel="icon" type="image/x-icon">
+<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<meta property="og:site_name" content="CrimeScape">
+<meta property="og:type" content="website">
+<meta property="og:title" ng-bind="data.pageTitle" content="">
+<meta property="og:description" content="">
+
+<link href="/css/bootstrap_custom/bootstrap.css" rel="stylesheet">
+
+<link href='http://fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link href="/css/screen.css" rel="stylesheet">
+</head>
+
+<body class="sandboxApp">
+
+<div class="navbar topnav navbar-inverse">
+    <div class="navbar-shell">
+      <a class="brand" href="/">W + C</a>
+    </div>
+</div>
+
+<style type="text/css">
+code {
+    width:940px;
+    display: block;
+    overflow: scroll;
+}
+</style>
+
+<div class="container content" ng-controller="sandboxCtrl">
+    <br><br>
+
+
+
+    <button ng-click="run()">Run again</button>
+
+    <h4>Min Lat:</h4>
+    <code>
+    {{ minLat }}
+    </code>
+
+    <h4>Min Lng:</h4>
+    <code>
+    {{ minLng }}
+    </code>
+
+    <h4>Simplified:</h4>
+    <code>
+    {{ simplifiedTractPaths }}
+    </code>
+
+    <h4>Normalized:</h4>
+    <code>
+    {{ normalizedTractPaths }}
+    </code>
+
+    <h4>Encoded:</h4>
+    <code>
+    {{ encodedTractPaths }}
+    </code>
+
+    <h4>Decoded:</h4>
+    <code>
+    {{ decodedTractPaths }}
+    </code>
+
+    <h4>Denormalized:</h4>
+    <code>
+    {{ denormalizedTractPaths }}
+    </code>
+
+
+
+    <br><br>
+</div>
+
+
+<footer>
+    <div class="container">
+    </div>
+</footer>
+
+<script>
+// window.apiDomain = "http://localhost:5000/";
+</script>
+
+<!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+<script src="http://underscorejs.org/underscore-min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' />
+<script src="/js/scripts.js"></script>
+
+
+
+
+<script src="/js/sandboxApp.js"></script>
+
+
+
+
+</body>
+</html>

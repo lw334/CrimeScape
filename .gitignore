@@ -1,0 +1,6 @@
+.sass-cache
+.DS_Store
+.s3cfg
+npm-debug.log
+dump.rdb
+*.codekit

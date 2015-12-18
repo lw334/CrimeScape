@@ -1,0 +1,2 @@
+require './crimescape'
+run CrimeScape

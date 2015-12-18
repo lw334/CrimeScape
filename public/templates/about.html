@@ -1,0 +1,107 @@
+<div class="container content">
+    <div class="row">
+        <div class="col-sm-4 about-nav">
+            <ul class="nav nav-stacked nav-pills">
+                <li><a href="#new-approach">A new approach</a></li>
+                <li><a href="#what-it-does">What it does</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#about-the-team">About the team</a></li>
+                <li><a href="#disclaimer">Disclaimer</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-8 main-content">
+<h1>CrimeScape uses public data to better understand crime patterns in Chicago</h1>
+
+<p>Based on real-time location-based conditions and past crime incidents, CrimeScape predicts the hourly likelihood of violent crime happening in any area of the city.</p>
+
+<p>
+    <strong>For public safety officials</strong><br>
+    Make more informed decisions about where to allocate resources.
+</p>
+<p>
+    <strong>For communities</strong><br>
+    Gain insight into how and why crime prevention decisions are made.
+</p>
+<p>
+    <strong>For researchers</strong><br>
+    Help us improve this tool and bring it to other cities. Check out our code and data.
+</p>
+
+<h2 id="new-approach">A new approach to understanding crime patterns</h2>
+
+<p>
+    <strong>Transparent and open</strong><br>
+    CrimeScape is designed for anyone to understand. All the data and analysis behind CrimeScape is entirely available and accessible to the public.
+</p>
+<p>
+    <strong>Evidence, not assumptions</strong><br>
+    CrimeScape constantly learns from the most recent data to assess where violent crime will likely migrate next, and makes it easy to understand how these predictions differ from what we would normally expect.
+</p>
+<p>
+    <strong>Unmatched accuracy</strong><br>
+    With new analysis techniques from the University of Chicago using the Argonne National Laboratory’s supercomputer, CrimeScape can anticipate about 70% on average of violent crimes, armed robberies, and assaults in Chicago to the hour and within an eight-block radius.
+</p>
+
+<h2 id="what-it-does">What it does</h2>
+
+<p>CrimeScape predicts violent crime patterns by analyzing publicly available information about the City of Chicago, including real-time weather conditions, historical data on violent crimes by type, and geographic information.</p>
+<p>By looking at environmental variables over a specific time period, such as the speed of changes in weather, and checking them against historical data on violent crimes, CrimeScape can make a prediction of how likely violent crime will be in a particular area of the city at a particular time.</p>
+<p>CrimeScape generates two main indicators for each census tract at a given hour:</p>
+
+<ul>
+    <li>Overall chance: How likely is crime to occur in this area at this time compared to the average for the rest of Chicago?</li>
+    <li>Surprise factor: How surprising is this prediction compared to what we would normally expect in this area at a comparable time?</li>
+</ul>
+
+<p>CrimeScape’s predictions are about 70% accurate on average. Learn more about how we measure accuracy here. CrimeScape doesn’t draw a causal relationship between weather and crime and can’t explain why certain conditions, such as higher temperatures, correlate with more crime.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>CrimeScape uses only open, publicly available data. All of our analysis and code is open source and published on <a href="https://github.com/ChicagoHarris/Weather-and-Crime">our Github page</a>.</p>
+
+<p><strong>Where we get our data</strong></p>
+
+<ul>
+    <li><a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_tracts.html">Census Tract Boundaries</a>, US Census Bureau </li>
+    <li><a href="http://www.noaa.gov/wx.html">Weather Forecasts, National Oceanic and Atmospheric Administration </a></li>
+    <li><a href="https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2">Crime Reports</a>, City of Chicago</li>
+</ul>
+
+<p>All the data we use has been previously available to the public. CrimeScape improves on previous crime prediction methods by examining not just static environmental factors, but environmental changes over time within smaller, more precise geographic areas (about an eight-block radius) and time periods (one hour).</p>
+
+<p>While currently CrimeScape is only available for Chicago, the technology behind CrimeScape is low-cost and could easily be adapted to other cities in the future.</p>
+
+<h2 id="about-the-team">About the team</h2>
+
+<p>
+<strong>Brett Goldstein</strong><br>
+Senior Fellow in Urban Science, University of Chicago
+</p>
+<p>
+<strong>Maggie King</strong><br>
+Program Director, Computational Analysis & Public Policy, University of Chicago
+</p>
+<p>
+<strong>Jeff Grogger</strong><br>
+Irving Harris Professor in Urban Policy, University of Chicago
+</p>
+<p>
+<strong>Charlie Catlett</strong><br>
+Senior Computer Scientist, Argonne National Laboratory Senior Fellow, Computation Institute
+</p>
+<p>
+
+<p>CrimeScape is a project from the University of Chicago’s <a href="http://harris.uchicago.edu/">Harris School for Public Policy</a>. The project is led by Senior Fellow in Urban Science <a href="http://harris.uchicago.edu/directory/faculty/brett_goldstein">Brett Goldstein</a>, formerly Chicago’s first Chief Data Officer and founder of the Chicago Police Department’s Predictive Analytics Group. CrimeScape is supported by a multidisciplinary team including researchers at the Harris School of Public Policy, the Department of Computer Science at the University of Chicago, the Computation Institute’s <a href="http://www.urbanccd.org/#urbanccd">Urban Center for Computation and Data</a>, and <a href="http://www.anl.gov/">Argonne National Laboratory</a>.</p>
+<p>CrimeScape is funded by a grant from the <a href="http://www.arnoldfoundation.org/">Arnold Foundation</a>, whose core objective is to address our nation’s most pressing and persistent challenges using evidence-based, multidisciplinary approaches.</p>
+
+<h2 id="disclaimer">Disclaimer</h2>
+
+<p>This site and related work was developed at The University of Chicago Harris School of Public Policy, with funding from the Arnold Foundation. The sources for the crime data on our maps and website are based on open data from the City of Chicago’s police incident reports and the weather data forecasts from The National Oceanic and Atmospheric Administration (NOAA).</p>
+<p>We base our definition of violent crimes off of the FBI’s National Incident-Based Reporting System (NIBRS) <a href="http://gis.chicagopolice.org/clearmap_crime_sums/crime_types.html">Uniform Crime Reporting (UCR) classifications for violent crimes</a>, with some modifications noted herein. NIBRS classifies the following types of crime as Violent Crimes: Homicide 1st and 2nd Degree (FBI code 01A), Criminal Sexual Assault (FBI code 02), Robbery (FBI code 03), Aggravated Assault (FBI code 04A), and Aggravated Battery (FBI code 04B). In our analysis, Assault likewise is defined to include all cases of Aggravated Assault (FBI code 04A). Robbery in our data includes all robberies that are classified under armed robberies by NIBRS (FBI code 03). Violent Crime in our data is defined as all cases of 1st and 2nd Degree Homicide (FBI code 01A) as well as the following specific types of Aggravated Battery: Aggravated Battery involving a Handgun (IUCR code 041A), Aggravated Battery involving Other Firearm (IUCR code 041B), Aggravated Battery involving Knife/Cutting Instrument (IUCR code 0420), Aggravated involving Other Dangerous Weapon (IUCR code 0430), Aggravated Battery involving Hands/First/Feet with Serious Injury (IUCR code 0479), and Aggravated Battery involving a Senior Citizen (IUCR code 0495). We don’t include predictions for criminal sexual assault in our tool at this time.</p>
+<p>The information made available here has been modified for use from its original source, and does not represent official statistics. Neither The University of Chicago nor our data sources make any claims as to the completeness, accuracy or content of any data or predictions contained in this application; makes any representation of any kind, including, but not limited to, warranty of the accuracy or fitness for a particular use; nor are any such warranties to be implied or inferred with respect to the information or data furnished herein. The data is subject to change as modifications and updates are complete.</p>
+<p>It is understood that the information contained in the site is being used at one’s own risk. In no event and under no legal theory shall any part of this site or its developers be liable for any loss or damages, including any direct, indirect, special, incidental, or consequential damages, arising as a result of this site or out of the use of this site. This site and its creators take no responsibility for, and will not be liable for, the website being temporarily unavailable. The information contained in this website is for general information purposes only. While we aim to keep the information up to date and informative, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, services, or related graphics on the website for any purpose. Any reliance or belief placed by the user on information contained in this website or implies by this site is strictly at your own risk.</p>
+
+
+        </div>
+    </div>
+</div>

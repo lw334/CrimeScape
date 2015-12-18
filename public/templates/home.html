@@ -1,0 +1,94 @@
+<div class="hour-drop-down">
+    Hours from now:
+    <select ng-model="data.currentHour">
+        <option ng-repeat="n in data.range(72) track by $index" value="{{ $index }}" ng-bind="{{ $index }}"></option>
+    </select>
+    <span class="overlay-toggle">
+        <a href="" ng-click="data.show_overlay = !data.show_overlay">
+            Show <span ng-show="!data.show_overlay">info</span> <span ng-show="data.show_overlay">map</span>
+        </a>
+    </span>
+</div>
+
+<div class="slider">
+    <div class="hour-slider">
+        <input id="hour-slider" type="range" list="hour-list" min="0" max="71" step="1" name="hour" value="0" ng-model="data.currentHour">
+        <datalist id="hour-list">
+            <option ng-repeat="n in data.range(72) track by $index">{{ $index }}</option>
+        </datalist>
+    </div>
+    <div class="hours-from-now">
+        <strong>{{ data.currentHour }}</strong>
+        <span class="label">
+            <ng-pluralize  count="data.currentHour" when="{'1': 'hour', 'other': 'hours'}"></ng-pluralize><br>
+            from now
+        </span>
+    </div>
+</div>
+
+<div class="home-wrap" ng-class="{'show-overlay': data.show_overlay}">
+    <div id="map" class="full-map"></div>
+    <div class="map-overlay" ng-switch on="data_state">
+        <section>
+            <p>
+                CrimeScape uses data to better understand patterns of crime. <a href="/about/">Learn more »</a>
+            </p>
+        </section>
+        <div ng-switch-when="changing">
+            <section>
+                <h4>Change to</h4>
+                <span ng-bind="hour_loading"></span>
+            </section>
+        </div>
+        <div ng-switch-when="loading">
+            <section>
+                <h4>Loading</h4>
+                <span ng-bind="hour_loading"></span>
+            </section>
+            <section class="loading-gif">
+                <img src="/img/loading.gif" width="50" alt="">
+            </section>
+        </div>
+        <div ng-switch-when="ready">
+            <section>
+                <h4>Predictions for</h4>
+                <span ng-bind="dt"></span>
+            </section>
+
+            <section class="weather">
+                <h4>Weather forecast</h4>
+                <span ng-bind="temp | number:1"></span>° <span class="category">F</span><br>
+                <span ng-bind="precip | number:2"></span>" <span class="category">precipitation</span><br>
+                <span ng-bind="humidity | number:1"></span>% <span class="category">rel. humidity</span><br>
+                <span ng-bind="wind | number:1"></span> MPH <span class="category">wind</span><br>
+            </section>
+
+            <section>
+                <h4 ng-click="show_accuracy=!show_accuracy">Accuracy <span class="explain">?</span></h4>
+                <span ng-bind="accuracy_rates[data.crimeFilter] * 100 | number: 1"></span>%
+                <p class="explanation" ng-show="show_accuracy">
+                    Accuracy calculates the proportion of our predictions that were correct for each hour of the day, when compared to the most recent week of crime data available.
+                </p>
+            </section>
+
+            <section>
+                <h4>Type of crime</h4>
+                <p class="crime-type" ng-repeat="cf in data.crimeFilters">
+                    <a ng-click="data.changeCrimeFilter(cf)" class="btn btn-default" ng-class="{'btn-primary': data.crimeFilter==cf[0]}" ng-bind="cf[1]"></a><br>
+                </p>
+            </section>
+
+            <section>
+                <h4>Chance of crime</h4>
+                <ul class="legend">
+                    <li ng-repeat="range in ranges">
+                        <span class="swatch" ng-style="{'background-color':range.color}"></span>
+                    </li>
+                </ul>
+                <p class="legend-caption">
+                    <span class="l">Low</span>
+                    <span class="r">High</span>
+                </p>
+            </section>
+        </div>
+        </div>

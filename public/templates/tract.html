@@ -1,0 +1,89 @@
+<div class="tract">
+
+<section class="map">
+    <div id="tractmap"></div>
+</section>
+
+<div class="tract-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                Tract
+                    #<b ng-bind="tractID"></b>
+                •
+                <span ng-show="tractCenter">
+                    <span class="centered-at">Centered at</span>
+                    <b class="latLng" ng-bind="tractCenter[0] | number: 2"></b>° N,
+                    <b class="latLng" ng-bind="tractCenter[1] | number: 2"></b>° W
+                </span>
+                <span ng-show="data.offCenter">
+                    •
+                    <a ng-click="recenter()">Recenter</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <section class="filter-head" ng-click="showFilter = !showFilter">
+        <strong>Showing:</strong>
+        <span class="filter-name">{{ data.crimeFilterName }}</span>
+        <span class="filter-name">{{ data.weatherFilterName }}</span>
+        <span class="tap-to-change">[Tap to change]</span>
+    </section>
+
+    <section class="filters" ng-class="{'show': showFilter}">
+        <div class="row">
+            <div class="col-sm-2">
+                <h4 class="filter-label">
+                    Crime type:
+                </h4>
+            </div>
+            <div class="col-sm-10 filter-buttons">
+                <div class="btn-group btn-group-justified">
+                    <a ng-repeat="cf in data.crimeFilters" ng-click="data.changeCrimeFilter(cf)" class="btn" ng-class="{'btn-primary': data.crimeFilter==cf[0]}" ng-bind="cf[1]"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row predictions">
+            <div class="col-sm-2">
+                <h4 class="filter-label">
+                    Predictions:
+                </h4>
+            </div>
+            <div class="col-sm-10 filter-buttons">
+                <div class="btn-group btn-group-justified">
+                    <a ng-repeat="wf in data.weatherFilters" ng-click="data.changeWeatherFilter(wf)" class="btn" ng-class="{'btn-primary': data.weatherFilter==wf[0]}" ng-bind="wf[1]"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="table">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Hours from now</th>
+                    <th>{{ axisTitle }}</th>
+                    <th>Temp</th>
+                    <th>Accuracy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="hour in crimeData track by $index">
+                    <td>{{ $index }}</td>
+                    <td>{{ hour }}%</td>
+                    <td>{{ all_temps[$index] }}°F</td>
+                    <td>{{ accuracyDictionary[data.crimeFilter][$index] }}%</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+    <section class="chart">
+        <highchart id="chart" config="chartConfig"></highchart>
+    </section>
+</div>
