@@ -807,6 +807,7 @@ csApp.controller("tractCtrl", function ($scope, $http, $location, $routeParams, 
     }
 
     $scope.tractID = $routeParams.id;
+    $scope.test = 'https://crimescape.shinyapps.io/Tract_Hour_Plots?type=violent-crime&tract=' + $routeParams.id;
     $http.get("/tract" + $scope.tractID + ".json").success(function(response) {
         $scope.data.prediction_timestamp = response.prediction_timestamp;
 

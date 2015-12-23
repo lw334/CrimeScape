@@ -374,11 +374,11 @@ csApp.controller("tractCtrl", function ($scope, $http, $location, $routeParams, 
     Data.showSearch = false;
 
     $scope.$watchGroup(['data.crimeFilter', 'data.weatherFilter', 'dataGroups'], function(newVal, oldVal) {
-        $scope.axisTitle = "Chance of crime";
+        $scope.axisTitle = "Test Axis";
         $scope.lowerBound = -50;
         $scope.upperBound = 50;
         if (newVal[1] == 'delta') {
-            $scope.axisTitle = "Change in chance of crime";
+            $scope.axisTitle = "Test Axis 2";
             $scope.lowerBound = -200;
             $scope.upperBound = 200;
         }
@@ -409,6 +409,7 @@ csApp.controller("tractCtrl", function ($scope, $http, $location, $routeParams, 
     }
 
     $scope.tractID = $routeParams.id;
+    $scope.test = 'https://crimescape.shinyapps.io/Tract_Hour_Plots?type=violent-crime&tract=' + $routeParams.id;
     $http.get("/tract" + $scope.tractID + ".json").success(function(response) {
         $scope.data.prediction_timestamp = response.prediction_timestamp;
 
@@ -507,10 +508,10 @@ csApp.controller("tractCtrl", function ($scope, $http, $location, $routeParams, 
                         var dateString = response.hours[this.x][0];
                         var dateObj = convertToDate(dateString);
                         var dateFormatted = dateObj.format("M j @ ga");
-                        var percentCaption = 'chance of crime'
+                        var percentCaption = 'test'
                         if (Data.weatherFilter == 'delta') {
                             percentCaption = this.points[0].y >= 0 ? 'more' : 'less'
-                            percentCaption += ' chance'
+                            percentCaption += ' test'
                         }
 
                         var y = Math.abs(this.points[0].y)

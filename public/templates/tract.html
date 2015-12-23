@@ -88,8 +88,11 @@
     </section>
 
     <section class="tract-hour-link">
+        <script>
+            var shinyLink = 'https://crimescape.shinyapps.io/Tract_Hour_Plots' + {{tractID}};
+        </script>
         <p>Crimescape's predictions for a specific census tract at a specific hour change as a result of updated weather forecasts. To see how these predictions have changed,
-            <a href='https://crimescape.shinyapps.io/Tract_Hour_Plots'>click here.</a>
+            <a href={{test}} id='shinyLink'>click here.</a>
         </p>
     </section>
 
