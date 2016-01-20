@@ -57,6 +57,7 @@ class CrimeScape < Sinatra::Base
     results[:hourindex] = hour_index
     results[:legend] = hour_legend
     results[:tracts] = tracts_for_hour(hour_index)
+    results[:means] = means_for_hour(hour_index)
 
     results.to_json
   end
@@ -131,6 +132,17 @@ private
     sorted_keys.collect do |key|
       @redis.lrange key, 1, -1
     end
+  end
+
+  def means_for_hour(hour_index)
+    # Mean probabilities across Chicago are present for every tract.
+    # Tract 661100 was chosen arbitrarily.
+    means =  @redis.lrange("tract:661100:#{hour_index}", -3, -1)
+    {
+        :assault => means[0],
+        :robbery => means[1],
+        :violent => means[2]
+    }
   end
 
   def chicago_tract_meta(tract_num)
