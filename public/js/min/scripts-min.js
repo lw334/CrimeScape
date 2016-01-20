@@ -746,6 +746,23 @@ csApp.controller("homeCtrl", function ($scope, $http, $location, $timeout, Data)
                     }
                 )
                 .bindLabel(getTooltip(noZeroID))
+                .on('mouseover', function(e){
+                e.target.setStyle({
+                color: '#2262CC',
+                weight: 3,
+                opacity: 0.6,
+                fillOpacity: 0.65,
+                fillColor: '#2262CC'})
+                })
+                .on('mouseout',function(e){
+                      e.target.setStyle({
+                        id: noZeroID,
+                        opacity: 0,
+                        weight: 0,
+                        color: '#999',
+                        fillOpacity: fillOpacity,
+                        fillColor: getFillColor(noZeroID)})
+                    })
                 .on('click', Data.tractClick);
                 $scope.allTracts.addLayer(poly);
             }
